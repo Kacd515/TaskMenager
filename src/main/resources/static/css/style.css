@@ -1,0 +1,29 @@
+h1{
+    text-align: center;
+    /*to powinno wysrodkowac tekst */
+}
+.btn-animated{
+    position:relative;
+    /*animation: mymove 2s infinite;*/
+}
+.checkbox-move{
+    position:relative;
+    /*animation: checkboxmove 1.5s infinite;*/
+}
+tr:nth-of-type(odd) td{
+    background: #e8e8e8;
+}
+tr:nth-of-type(even) td{
+    background: #f5f5f5;
+}
+@keyframes mymove {
+    0% {top: 0; left: 0;}
+    20% {left: 250px; background:blue;}
+    50% {top: 200px;background: green;left: 0;}
+    100% {top: 0;left: 0;}
+}
+@keyframes checkboxmove {
+    0% {top: 0; left: 0;}
+    50% {top: 0;left: 100%;}
+    100% {top: 0;left: 0;}
+}
