@@ -10,4 +10,7 @@ public interface TaskDao {
     void add(Task task);
     Task findById(int id);
     void deleteById(int id);
+    List<Task> findFinished();
+    List<Task> findUnfinished();
+    void update(Task task);
 }

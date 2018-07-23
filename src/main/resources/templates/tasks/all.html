@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <h1>Lista zadań</h1>
+            <h1 th:text="${description}"/>
         </div>
     </div>
 </div>
@@ -24,11 +24,15 @@
                     <th>Nazwa</th>
                     <th>Description</th>
                     <th>Finished</th>
+                    <th>Edit</th>
+                    <th>Usun</th>
                 </tr>
                 <tr th:each="task : ${tasks}" th:classappend="${isFinished} ? favorite ">
                     <td th:text="${task.name}"></td>
                     <td th:text="${task.description}"></td>
                     <td th:text="${task.isFinished()}"></td>
+                    <td><a th:href="@{/tasks/{id}(id=${task.id})}">Edytuj</a>
+                    <td th:href="${/remove}">Usun</td>
                 </tr>
             </table>
         </div>
