@@ -27,15 +27,10 @@ public class TaskController {
         return "redirect:/all";
     }
 
-    @PostMapping("/remove")
-    public String removeTask(@ModelAttribute Task task) {
-        taskDao.deleteById(task.getId());
-        return "tasks/all";
-    }
-
     @GetMapping("/all")
     public String all(ModelMap modelMap) {
         modelMap.put("tasks", taskDao.findAll());
+        modelMap.put("description", "Wszystkie zadania");
         return "tasks/all";
     }
 
@@ -62,6 +57,12 @@ public class TaskController {
     @PostMapping("/update")
     public String update(@ModelAttribute Task task) {
         taskDao.update(task);
+        return "redirect:/all";
+    }
+
+    @GetMapping("/tasks/{id}/remove")
+    public String removeTask(@ModelAttribute Task task) {
+        taskDao.deleteById(task.getId());
         return "redirect:/all";
     }
 

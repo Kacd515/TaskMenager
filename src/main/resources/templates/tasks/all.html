@@ -32,12 +32,18 @@
                     <td th:text="${task.description}"></td>
                     <td th:text="${task.isFinished()}"></td>
                     <td><a th:href="@{/tasks/{id}(id=${task.id})}">Edytuj</a>
-                    <td th:href="${/remove}">Usun</td>
+                    <td><a th:href="@{/tasks/{id}/remove(id=${task.id})}">Usun</a>
                 </tr>
             </table>
         </div>
     </div>
 </div>
+
+<button type="button"><a th:href="@{/add}">Dodaj nowe zadanie</a></button>
+<button type="submit"><a th:href="@{/finished}">Pokaż zakończone</a></button>
+<button type="button"><a th:href="@{/unfinished}">Pokaż niezakończone</a></button>
+<button type="button"><a th:href="@{/all}">Pokaż wszystkie</a></button>
+
 
 </body>
 </html>

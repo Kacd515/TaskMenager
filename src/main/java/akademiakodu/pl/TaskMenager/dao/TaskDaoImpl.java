@@ -3,6 +3,7 @@ package akademiakodu.pl.TaskMenager.dao;
 import akademiakodu.pl.TaskMenager.model.Task;
 import org.springframework.stereotype.Component;
 
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,8 +34,8 @@ public class TaskDaoImpl implements TaskDao {
 
     @Override
     public void deleteById(int id) {
-        Task task = findById(id);
-        tasks.remove(task);
+        Task task1 = tasks.stream().filter(task -> task.getId()==id).findFirst().get();
+        tasks.remove(task1);
     }
 
     @Override
